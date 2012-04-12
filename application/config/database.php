@@ -49,8 +49,8 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';//quizzicus_db
-$db['default']['password'] = '';//26Nc7mdz5Kz5NyDT
+$db['default']['username'] = 'quizzicus_db';//root
+$db['default']['password'] = '26Nc7mdz5Kz5NyDT';//
 $db['default']['database'] = 'quiz';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
