@@ -4,9 +4,12 @@ class Home extends CI_Controller {
 	
 	public function index() {
 		
+		/*
 		$data['title'] = "Quizzicus";
 		$data['alerts'] = false;
 		$this->pageload->loadIndex('index/splash',$data);
+		*/
+		$this->splash();
 	
 	}
 
