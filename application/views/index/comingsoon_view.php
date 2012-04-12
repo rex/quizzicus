@@ -28,7 +28,7 @@ body {
 	padding: 25px;
 	box-shadow: 0 5px 35px #222, inset 0 1px 1px #eee;
 	border-radius: 5px;
-	background: -webkit-gradient(linear ,left bottom, left top, color-stop(0, #666), color-stop(1, #999));
+	background: -webkit-gradient(linear ,left bottom, left top, color-stop(0, #666), color-stop(1, #999)); 
 }
 </style>
 	</head>
