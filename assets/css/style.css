@@ -4,7 +4,7 @@ Quizzicus (c)2012 Pierce Moore
 
 https://www.quizzic.us
 
-http://www.PierceMoore.com 
+http://www.PierceMoore.com
 
 **************************/
 /********* FONTS *********/
@@ -77,6 +77,16 @@ hr {
 body {
 	background: 			#456281;
 }
+hr {
+	height:					1px;
+	color:					#999999;
+	border-bottom:			1px #ffffff solid;
+	width:					100%;
+	margin:					auto;
+}
+body {
+	background: 			#456281;
+}
 
 /********* Link Styles *********/
 a {
@@ -97,7 +107,6 @@ a.big_text_link {
 	border-bottom:			1px #333333 solid;
 	color:					#333333;
 }
-
 
 /********* Message Divs *********/
 .msg_error {
@@ -127,7 +136,7 @@ a.big_text_link {
 
 /********* Header levels *********/
 h1,h2,h3,h4,h5 {
-	letter-spacing: 		-2px;
+	letter-spacing: 		-3px;
 	line-height:			100%;
 }
 h1 {
