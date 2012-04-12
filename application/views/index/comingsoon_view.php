@@ -5,6 +5,8 @@
 		<title><?=$title;?></title>
 
 		<link rel="stylesheet" type="text/css" href="<?=base_url();?>assets/css/style.css" />
+		<link rel="shortcut icon" href="<?=base_url();?>assets/img/favicon.ico" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <style type="text/css">
 * {
 	font-family: Open;
