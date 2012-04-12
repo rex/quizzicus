@@ -14,10 +14,7 @@ print '</pre>';
 
 <link rel='stylesheet' type='text/css' media='all' href='<?=base_url();?>/assets/css/style.css' />
 <link rel="shortcut icon" href="<?=base_url();?>/assets/img/favicon.ico" />
-<!--
-<script type="text/javascript" src="https://use.typekit.com/ffa5hul.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
--->
+
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
 </head>

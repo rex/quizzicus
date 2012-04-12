@@ -5,24 +5,24 @@ print '<pre>';
 print '</pre>';
 */
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?php print $title;?></title>
 
 <link rel='stylesheet' type='text/css' media='all' href='<?=base_url();?>assets/css/style.css' />
 <link rel="shortcut icon" href="<?=base_url();?>assets/img/favicon.ico" />
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
 <style>
 
 body {
 	background:url('<?=base_url();?>assets/img/main_content_bg.png') repeat-x bottom;
 }
-
-
+h1, h2 {
+	font-family: Ostrich;
+}
 #display_bar {
 	width:100%;
 	height:360px;
