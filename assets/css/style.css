@@ -10,19 +10,31 @@ http://www.PierceMoore.com
 /********* FONTS *********/
 @font-face {
 	font-family: 			Ostrich;
-	src: 					url('../fonts/ostrich-sans/ostrich-regular-webfont.ttf');
+	src: 					url('../fonts/ostrich-sans/ostrich-regular-webfont.eot?') format('embedded-opentype'),
+							url('../fonts/ostrich-sans/ostrich-regular-webfont.ttf') format('truetype')
+							url('../fonts/ostrich-sans/ostrich-regular-webfont.svg') format('svg'),
+							url('../fonts/ostrich-sans/ostrich-regular-webfont.woff') format('woff');
 }
 @font-face {
 	font-family: 			Museo;
-	src: 					url('../fonts/museo/Museo_Slab_500-webfont.ttf');
+	src: 					url('../fonts/museo/Museo_Slab_500-webfont.eot?') format('embedded-opentype'),
+							url('../fonts/museo/Museo_Slab_500-webfont.ttf') format('truetype')
+							url('../fonts/museo/Museo_Slab_500-webfont.svg') format('svg'),
+							url('../fonts/museo/Museo_Slab_500-webfont.woff') format('woff');
 }
 @font-face {
 	font-family: 			League;
-	src: 					url('../fonts/league/League_Gothic-webfont.ttf');
+	src: 					url('../fonts/league/League_Gothic-webfont.eot?') format('embedded-opentype'),
+							url('../fonts/league/League_Gothic-webfont.ttf') format('truetype')
+							url('../fonts/league/League_Gothic-webfont.svg') format('svg'),
+							url('../fonts/league/League_Gothic-webfont.woff') format('woff');
 }
 @font-face {
 	font-family: 			Open;
-	src: 					url('../fonts/open-sans/OpenSans-Regular.ttf');
+	src: 					url('../fonts/open-sans/OpenSans-Regular-webfont.eot?') format('embedded-opentype'),
+							url('../fonts/open-sans/OpenSans-Regular-webfont.ttf') format('truetype')
+							url('../fonts/open-sans/OpenSans-Regular-webfont.svg') format('svg'),
+							url('../fonts/open-sans/OpenSans-Regular-webfont.woff') format('woff');
 }
 .ostrich {
 	font-family: 			Ostrich;

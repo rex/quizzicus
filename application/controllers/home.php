@@ -17,6 +17,7 @@ class Home extends CI_Controller {
 
 		$data['title'] = "Quizzicus :: Coming Soon";
 		$data['alerts'] = false;
+		$this->pageload->checkIE();
 		$this->load->view('index/comingsoon_view',$data);
 
 	}

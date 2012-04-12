@@ -16,6 +16,7 @@ class Pageload {
 	function loadIndex($view = null, $data = null) {
 	
 		$CI =& get_instance();
+
 		$this->checkIE();
 
 		$CI->load->view('index/header_view',$data);
