@@ -20,9 +20,6 @@ print '</pre>';
 body {
 	background:url('<?=base_url();?>assets/img/main_content_bg.png') repeat-x bottom;
 }
-h1, h2 {
-	font-family: Ostrich;
-}
 #display_bar {
 	width:100%;
 	height:360px;
@@ -98,14 +95,14 @@ h1, h2 {
     <div id="header" class="shadow">
     	<div id="header_content">
     		<div id="header_logo">
-    			<a href="<?php print base_url();?>" id="logo_link">Quizzicus</a>
+    			<a href="<?php print site_url();?>" id="logo_link">Quizzicus</a>
     		</div>
 			
 	        <div id="utility_area">
 	            <a href="#" class="quiz">Quizzes</a>
 	            <a href="#" class="grades">Grades</a>
 	            <a href="#" class="payment">Payment</a>
-	            <a href="/account/" class="account">Account</a>
+	            <a href="<?=site_url();?>/account/" class="account">Account</a>
 	        </div>
     	</div>
     </div>
@@ -116,8 +113,8 @@ h1, h2 {
     	<div id="display_bar_content">
     		
     		<div id="spiel">
-    			<h2 class="qhead" style="line-height: 100%;">Start studying better<br /> with <span style="font-size:50px" class="qhead">Quizzicus</span></h2>
-    			<h3>Say goodbye to difficult studying and get started learning in a much more fun, beautiful way.</h3>
+    			<h2 class="museo qhead">Start studying better<br /> with <span style="font-size:60px" class="qhead">Quizzicus</span></h2>
+    			<h3 class="museo">Say goodbye to difficult studying and get started learning in a much more fun, beautiful way.</h3>
     			
     			<a href="#" id="premier_create_acct"></a>
     			

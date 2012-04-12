@@ -42,6 +42,9 @@ http://www.PierceMoore.com
 	 margin: 				0;
 	 padding: 				0;
 }
+body {
+	background: 			-webkit-radial-gradient(center center, circle cover, #0053B3 0%, #133461 100% );
+}
 .thinborder {
 	border:					1px #333333 solid;
 }
@@ -64,8 +67,8 @@ http://www.PierceMoore.com
 	text-shadow:			0 0 3px #000000;
 }
 .qhead {
-	color:					#eeeeee;
-	text-shadow:			0 0 3px #000000;
+	color:					#ddd;
+	text-shadow:			0 2px 5px #000, 0 -1px -2px #fff;
 }
 hr {
 	height:					1px;
@@ -73,19 +76,6 @@ hr {
 	border-bottom:			1px #ffffff solid;
 	width:					100%;
 	margin:					auto;
-}
-body {
-	background: 			#456281;
-}
-hr {
-	height:					1px;
-	color:					#999999;
-	border-bottom:			1px #ffffff solid;
-	width:					100%;
-	margin:					auto;
-}
-body {
-	background: 			#456281;
 }
 
 /********* Link Styles *********/
@@ -280,12 +270,13 @@ h3 {
 }
 /********* Form elements, etc *********/
 input[type=text],input[type=password] {
+	font-family:			Open;
 	font-size:				25px;
-	color:					#333333;
 	padding:				5px 10px 5px 10px;
-	display:				block;
-	background:				url('../img/text_input_bg.png') repeat-x top;
+	background:				-webkit-gradient(linear,left bottom,left top, color-stop(0, #bbb), color-stop(1,#eee));
 	border:					1px #666666 solid;
+	border-radius:			5px;
+	box-shadow:				inset 0 2px 5px #444;
 }
 #button_submit {
 	margin-top:				5px;
