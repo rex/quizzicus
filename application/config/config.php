@@ -14,7 +14,15 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/quizzicus';//https://www.quizzic.us/
+
+define( "QUIZ_DEV", false ); // What status is the application? Toggle this setting to make working locally/remotely easier. (true: Development, false: production)
+if( QUIZ_DEV ) {
+	$config['base_url']	= 'http://localhost/quizzicus';
+	$config['index_page'] = 'index.php';
+} else {
+	$config['base_url']	= 'https://www.quizzic.us/';
+	$config['index_page'] = '';
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +34,6 @@ $config['base_url']	= 'http://localhost/quizzicus';//https://www.quizzic.us/
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
 
 /*
 |--------------------------------------------------------------------------
