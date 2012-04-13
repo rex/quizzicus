@@ -22,21 +22,22 @@
 <h1 class="qhead">My Quizzes</h1>
 <?php foreach($quizzes['user_quizzes'] as $k): ?>
 
-	<div class="box_list_div innershadow round">
-		<a href="/quizzes/view/<?php print $k->id;?>/"><h2 class="qhead bold"><?php print $k->name; ?></h2></a>
-		<h3 class="bold"><?php print $k->description; ?></h3>
+	<div class="box_list_div">
+		<a href="/quizzes/view/<?php print $k->id;?>/"><h3 class="qhead bold"><?php print $k->name; ?></h3></a>
+		<?php print $k->description; ?>
 		
 	</div>	
 
 <?php endforeach;?>
 
+<div class="space20"></div>
 <?php if(!empty($quizzes['user_assigned_quizzes'])): ?>
 <h1 class="qhead">Quizzes Shared with Me</h1>
 <?php foreach($quizzes['user_assigned_quizzes'][0] as $k): ?>
 
-	<div class="box_list_div innershadow round">
-		<a href="/quizzes/view/<?php print $k->id;?>/"><h2 class="qhead bold"><?php print $k->name; ?></h2></a>
-		<h3 class="bold"><?php print $k->description; ?></h3>
+	<div class="box_list_div">
+		<a href="/quizzes/view/<?php print $k->id;?>/"><h3 class="qhead bold"><?php print $k->name; ?></h3></a>
+		<?php print $k->description; ?>
 		
 	</div>	
 
