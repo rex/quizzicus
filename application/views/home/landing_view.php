@@ -23,7 +23,7 @@
 <?php foreach($quizzes['user_quizzes'] as $k): ?>
 
 	<div class="box_list_div">
-		<a href="/quizzes/view/<?php print $k->id;?>/"><h3 class="qhead bold"><?php print $k->name; ?></h3></a>
+		<a href="<?=site_url("quizzes/view/{$k->id}");?>"><h3 class="qhead bold"><?php print $k->name; ?></h3></a>
 		<?php print $k->description; ?>
 		
 	</div>	
@@ -36,7 +36,7 @@
 <?php foreach($quizzes['user_assigned_quizzes'][0] as $k): ?>
 
 	<div class="box_list_div">
-		<a href="/quizzes/view/<?php print $k->id;?>/"><h3 class="qhead bold"><?php print $k->name; ?></h3></a>
+		<a href="<?=site_url("quizzes/view/{$k->id}");?>"><h3 class="qhead bold"><?php print $k->name; ?></h3></a>
 		<?php print $k->description; ?>
 		
 	</div>	
