@@ -16,11 +16,12 @@
 <div style="width:50%;float:left;border-right:1px #999999 solid;">
 	
 <h1 class="qhead">Log In to Quizzicus</h1>
-	<form id="login_form" action="/login/go/" method="post">
-		<label>Username
+	<form id="login_form" action="<?=site_url();?>/login/go/" method="post">
+		<label>Username <br />
 		<input type="text" id="log_user" name="log_user" value="<?php print $this->session->userdata('username'); ?>"/>
-		</label>
-		<label>Password
+		</label><br />
+
+		<label>Password <br />
 		<input type="password" id="log_pass" name="log_pass" />
 		</label>
 		
