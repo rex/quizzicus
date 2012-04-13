@@ -31,7 +31,7 @@ class Quizzes extends CI_Controller {
 	
 	public function take($id)
 	{
-		//$this->output->enable_profiler(TRUE);
+		$this->output->enable_profiler(TRUE);
 		$this->model_login->checkLogin();
 		
 		$data['title']		=	'My Account';
@@ -40,6 +40,12 @@ class Quizzes extends CI_Controller {
 		
 		$data['quiz']		=	$this->model_quiz->assembleQuiz($id);
 		$this->pageload->load('quiz/take',$data);
+	}
+
+	public function processAnswer() {
+
+
+
 	}
 	
 }
