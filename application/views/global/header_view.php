@@ -12,8 +12,8 @@ print '</pre>';
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?php print $title;?></title>
 
-<link rel='stylesheet' type='text/css' media='all' href='<?=base_url();?>/assets/css/style.css' />
-<link rel="shortcut icon" href="<?=base_url();?>/assets/img/favicon.ico" />
+<link rel='stylesheet' type='text/css' media='all' href='<?=base_url('assets/css/style.css');?>' />
+<link rel="shortcut icon" href="<?=base_url('assets/img/favicon.ico');?>" />
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
@@ -28,12 +28,12 @@ print '</pre>';
     		</div>
 			
 	        <div id="utility_area">
-	            <a href="<?=site_url();?>/quizzes/" class="quiz">Quizzes</a>
-	            <a href="<?=site_url();?>/grades/" class="grades">Grades</a>
-	            <a href="<?=site_url();?>/account/payment/" class="payment">Payment</a>
-	            <a href="<?=site_url();?>/account/" class="account">Account</a>
+	            <a href="<?=site_url('quizzes');?>" class="quiz">Quizzes</a>
+	            <a href="<?=site_url('grades');?>" class="grades">Grades</a>
+	            <a href="<?=site_url('account/payment');?>" class="payment">Payment</a>
+	            <a href="<?=site_url('account');?>" class="account">Account</a>
 	        </div>
-	        <a href="<?=site_url();?>/login/logout/">Log Out</a>
+	        <a href="<?=site_url('login/logout');?>">Log Out</a>
     	</div>
     </div>
         

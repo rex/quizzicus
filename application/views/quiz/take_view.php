@@ -22,11 +22,11 @@ $i = 1;
 foreach($quiz['questions'] as $k=>$v) {
 	print "<div id=\"question$i\" class=\"quiz_question\">";
 
-	print "<h1 class=\"qhead\">" . $v['questionInfo']['question_name'] . '</h1><div class="space20"></div>';
-	print "<h3>" . $v['questionInfo']['question_content'] . '</h3><div class="space20"></div>';
+	print "<h1 class=\"qhead\">" . $v['question']['name'] . '</h1><div class="space20"></div>';
+	print "<h3>" . $v['question']['content'] . '</h3><div class="space20"></div>';
 	
 	foreach($v['answers'] as $k=>$v) {
-		print '<div class="quiz_qwrapper"><label class="quiz_qlabel"><input type="radio" name="group' . $i . '" class="button_radio" />' . $v['answer_content'] . '</label></div>';
+		print '<div class="quiz_qwrapper"><label class="quiz_qlabel"><input type="radio" name="group' . $i . '" class="button_radio" />' . $v['content'] . '</label></div>';
 	}
 	$i++;
 	print "</div>";
