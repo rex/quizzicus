@@ -41,7 +41,7 @@ print '</pre>';
         	
 		<div class="space20"></div>
 		
-		<div class="box round shadow">
+		<div class="box">
 		
 		<?php 
 		

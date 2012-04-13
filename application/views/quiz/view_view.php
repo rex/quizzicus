@@ -1,16 +1,15 @@
-<pre>
-	<?php print_r($quiz); ?>
-</pre>
 
+<h2 class="qhead"><?php print $quiz->name; ?></h2>
+<br />
+<h3 class="open"><?php print $quiz->description; ?></h3>
+<div class="space20"></div>
 
-<h1 class="qhead"><?php print $quiz->name; ?></h1>
-<h2><?php print $quiz->description; ?></h2>
-
-<table class="view_quiz_table round innershadow raleway">
+<h3 class="qhead">Rules</h3>
+<table class="view_quiz_table">
 	
 	<tr>
-		<td>Timed: </td><td><?php print ($quiz->timed)? 'Timer Active' : 'Untimed'; ?></td>
-		<td>Time Limit:</td>
+		<td><span class="museo">Timed: </span></td><td><?php print ($quiz->timed)? 'Timer Active' : 'Untimed'; ?></td>
+		<td><span class="museo">Time Limit:</span></td>
 		<td>
 			<?php if($quiz->timed) {
 				print $quiz->timer / 60 . ' minutes';
@@ -20,7 +19,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td>Breaks Allowed: </td>
+		<td><span class="museo">Breaks Allowed: </span></td>
 		<td><?php 
 			if($quiz->allow_breaks) {
 				if($quiz->num_breaks_allowed == 0)
@@ -32,15 +31,15 @@
 				print 'None';
 			}
 		?></td>
-		<td>Privacy:</td>
+		<td><span class="museo">Privacy</span>:</td>
 		<td><?php print ($quiz->public) ? 'Public' : 'Private'; ?></td>
 	</tr>
 		
 </table>
 <br />
 	<h2 class="qhead">A Message from the Administrator of this Test</h2>
-	<div class="gen_cloud_box round innershadow museo">
-		<h3 class="raleway">
+	<div>
+		<h3 class="open">
 <?php if(!empty($quiz->banner_message) || (strcmp($quiz->banner_message,'') != 0)): ?>
 	
 		<?php print $quiz->banner_message; ?>
@@ -53,7 +52,7 @@ if($quiz->timed) {
 if($quiz->allow_breaks) {
 	$w = ($quiz->num_breaks_allowed == 1) ? 'it' : 'them';
 	$n = ($quiz->num_breaks_allowed == 0) ? 'an infinite number of' : $quiz->num_breaks_allowed;
-	print 'You will be allowed to take ' . $n . ' breaks during the completion of this test, if need be. Use ' . $w . ' wisely!';
+	print ' You will be allowed to take ' . $n . ' breaks during the completion of this test, if need be. Use ' . $w . ' wisely!';
 } else {
 	print 'There are *no* breaks allowed during this test. Please stay focused!';
 }
@@ -64,8 +63,3 @@ if($quiz->allow_breaks) {
 
 
 <a href="/quizzes/take/<?php print $quiz->id;?>" id="button_submit">Take Quiz</a>
-
-<pre>
-	<?php print_r($quiz); ?>
-</pre>
-
