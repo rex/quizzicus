@@ -3,10 +3,9 @@
 $(document).ready(function() {
 	$("#question1").fadeIn();
 
-	$(".quiz_qlabel").click(function() {
-		console.log("Clicked!");
-		$(this).addClass(".quiz_qwrapper_active");
-		alert(this);
+	$("input[type=radio]").click(function() {
+		$('.quiz_qwrapper_active').removeClass('quiz_qwrapper_active');
+		$(this.parentNode.parentNode).addClass('quiz_qwrapper_active');
 	});
 });
 
@@ -27,12 +26,13 @@ foreach($quiz['questions'] as $k=>$v) {
 	print "<h3>" . $v['questionInfo']['question_content'] . '</h3><div class="space20"></div>';
 	
 	foreach($v['answers'] as $k=>$v) {
-		print '<div class="quiz_qwrapper"><label class="quiz_qlabel"><input type="radio" name="group' . $i . '">' . $v['answer_content'] . '</label></div>';
+		print '<div class="quiz_qwrapper"><label class="quiz_qlabel"><input type="radio" name="group' . $i . '" class="button_radio" />' . $v['answer_content'] . '</label></div>';
 	}
 	$i++;
 	print "</div>";
 }
 
 ?>
+<input type="hidden" id="curQuestion" value="1" />
 <div class="space20"></div>
-<a href="/quizzes/take/<?php print $quiz['quizInfo']['id'];?>" id="button_submit">Submit Answer</a>
+<a href="#" id="button_submit">Submit Answer</a>
