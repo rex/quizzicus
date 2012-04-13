@@ -78,6 +78,7 @@ h1, h2 {
 					<a href="http://www.mozilla.org/en-US/firefox/new/"><img src="<?=base_url();?>assets/img/icons/browsers/Firefox.png" alt="Firefox" title="Firefox" /></a>
 				</div>
 
+				Sorry about that. Seriously. Kind of.
 			</div>
 
 		</div>
