@@ -15,7 +15,7 @@
 
 <div style="width:50%;float:left;border-right:1px #999999 solid;">
 	
-<h1 class="qhead">Log In to Quizzicus</h1>
+<h1 class="qhead">Login to Quizzicus</h1>
 	<form id="login_form" action="<?=site_url();?>/login/go/" method="post">
 		<label>Username <br />
 		<input type="text" id="log_user" name="log_user" value="<?php print $this->session->userdata('username'); ?>"/>
@@ -34,12 +34,14 @@
 
 <div style="width:49%;height:235px;float:left;border-left:1px #eeeeee solid;">
 	
-	
+<h1 class="qhead">Login with Facebook</h1>
+	<a href="#" class="button_fb">Login with Facebook</a>
+<!--	
 	<fb:login-button
 registration-url="https://developers.facebook.com/docs/plugins/registration" />
 	
 	
-<!--	<iframe src="https://www.facebook.com/plugins/registration.php?
+	<iframe src="https://www.facebook.com/plugins/registration.php?
              client_id=113869198637480&
              redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fecho%2F&
              fields=name,birthday,gender,location,email"

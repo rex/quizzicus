@@ -28,12 +28,12 @@ print '</pre>';
     		</div>
 			
 	        <div id="utility_area">
-	            <a href="<?=base_url();?>/quizzes/" class="quiz">Quizzes</a>
-	            <a href="<?=base_url();?>/grades/" class="grades">Grades</a>
-	            <a href="<?=base_url();?>/account/payment/" class="payment">Payment</a>
-	            <a href="<?=base_url();?>/account/" class="account">Account</a>
+	            <a href="<?=site_url();?>/quizzes/" class="quiz">Quizzes</a>
+	            <a href="<?=site_url();?>/grades/" class="grades">Grades</a>
+	            <a href="<?=site_url();?>/account/payment/" class="payment">Payment</a>
+	            <a href="<?=site_url();?>/account/" class="account">Account</a>
 	        </div>
-	        <a href="<?=base_url();?>/login/logout/">Log Out</a>
+	        <a href="<?=site_url();?>/login/logout/">Log Out</a>
     	</div>
     </div>
         
