@@ -53,6 +53,7 @@ http://www.PierceMoore.com
 * {
 	 margin: 				0;
 	 padding: 				0;
+	 font-family:			Open;
 }
 body {
 	background: 			-webkit-radial-gradient(center center, circle cover, #0053B3 0%, #133461 100% );
@@ -140,6 +141,7 @@ a.big_text_link {
 h1,h2,h3,h4,h5 {
 	letter-spacing: 		-3px;
 	line-height:			100%;
+	font-family:			Museo;
 }
 h1 {
 	font-size:				45px;
@@ -232,7 +234,15 @@ h3 {
 	bottom:					0;
 	width:					100%;
 	height:					50px;
-	background:				url('../img/main_content_bg.png') repeat-x top;
+	background:				-webkit-gradient(linear, left bottom, left top, color-stop(0, #aaa), color-stop(1, #eee ));
+}
+#footer span {
+	position: 				relative;
+	top: 					35%;	
+	left: 					25px;
+}
+#footer links {
+
 }
 
 /********* Upper Utility Area *********/
@@ -305,8 +315,6 @@ input[type=text],input[type=password] {
 }
 
 /********* Custom Divs that are used site-wide *********/
- * 	
- */
 .gen_cloud_box {
 	margin-top:				10px;
 	background:				url('../img/cloud_bg.png') no-repeat bottom;
@@ -315,23 +323,24 @@ input[type=text],input[type=password] {
 /********* Custom Table Stuff *********/
 .link_table,.view_quiz_table {
 	width:					100%;
-	padding:				4px;
-	background:				url('../img/cloud_bg.png') repeat-x center;
 }
 .link_table td {
 	width:					50%;
+	background: 			-webkit-gradient(linear,left bottom, left top, color-stop(0, #aaa), color-stop(1, #ccc));
+	border:					1px #bbb solid;
+	box-shadow:				inset 0 1px 1px #eee;
+	border-radius:			5px;
 }
 .link_table a {
-	padding:				10px;
+	font-family:			Ostrich;
+	padding:				15px;
 	display:				block;
-	font-size:				30px;
-	border-radius:			5px;
+	font-size:				35px;
 	color:					#333333;
+	border-radius:			5px;
 }
 .link_table a:hover {
-	background:				url('../img/main_content_bg.png') repeat-x center;
-	box-shadow:				inset 0 0 5px #222222;
-	color:					#000000;
+	box-shadow: 			inset 0 1px 1px #fff, 0 2px 5px #666;
 }
 .view_quiz_table td {
 	font-size:				28px;
