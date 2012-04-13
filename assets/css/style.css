@@ -315,17 +315,24 @@ input[type=text],input[type=password] {
 	box-shadow:				inset 0 1px 3px #444;
 }
 #button_submit {
+	color:					#999;
+	font-size: 				22px;
+	font-family:			Museo;
+	padding-top:			15px;
 	margin-top:				5px;
-	text-indent:			-9999em;
-}
-#button_submit {
-	background:				url('../img/button_sprite.png');
+	text-align:				center;
+	background:				-webkit-gradient(linear, left bottom, left top, color-stop(0,#12222f), color-stop(1,#1E384D));
 	width:					177px;
-	height:					52px;
+	height:					40px;
 	display:				block;
+	border-radius:			5px;
+	box-shadow:				inset 0 0 2px #ddd,0 2px 5px #333;
+	text-shadow:			0 -1px -1px #fff;
 }
 #button_submit:hover {
-	background-position:	-177px 0;
+	background:				-webkit-gradient(linear, left bottom, left top, color-stop(0,#12222f), color-stop(1,#1E384D));
+	color: 					#fff;
+	box-shadow:				inset 0 0 2px #fff, 0 2px 5px #000;
 }
 label {
 	color: 					#333;

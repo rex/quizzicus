@@ -60,6 +60,5 @@ if($quiz->allow_breaks) {
 		</h3>
 	</div>
 
-
-
-<a href="/quizzes/take/<?php print $quiz->id;?>" id="button_submit">Take Quiz</a>
+<br />
+<a href="<?=site_url("quizzes/take/{$quiz->id}");?>" id="button_submit">Take Quiz</a>
