@@ -11,7 +11,7 @@ class AutoPop extends CI_Controller {
 	public function quizzes() {
 
 		$num = new stdClass;
-		$num->quizzes = 100;
+		$num->quizzes = 1000;
 		$num->questions = 20;
 		$num->answers = 5;
 
@@ -72,27 +72,27 @@ class AutoPop extends CI_Controller {
 			$num_breaks = ( $allowBreaks == "0" ) ? "0" : rand(1,100);
 			$randomize = ( ( $quizCount % 6 ) == 0) ? "0" : "1";
 			$nsfw = ( ( $quizCount % 8 ) == 0) ? "1" : "0";
+			$banner = "banner" . rand(1,5) . ".png";
 
 			$testname = "$teacher's $subject $quiztype";
 			for( $i = 0; $i < $num->questions; $i++ ) {
 
-				if( $i % 5 == 0 ) {
-					$type = 'bool';
-					$answers = array();
+				$type = rand(1,5);
+				if( $type == 1 ) {
+					$answers = array_rand(array_flip(array("true","false"))); // Boolean
 				} else {
-					$type = 'mult';
 					$answers = array_rand(array_flip( array_merge($fnames,$streets,$lnames,$quiz->subjects) ), $num->answers );
 				}
 				$questions[] = array(
 					'name'	=>	array_rand(array_flip( $quiz->questions )),
 					'type'	=>	$type,
 					'desc'	=>	"This is a question description. I really hope you enjoy it, because I'm not making a million custom descriptions.",
-					'answers' => $answers
+					'answers' => $answers,
+					'correct' => ( is_array($answers) ) ? array_rand( $answers ) : $answers
 				);
 			}
 			$data = array(
 				'name'	=>	$testname,
-				'questions' => $questions,
 				'description' => "The test description goes here. For this one, we would make a reference to the title, $testname.",
 				'num_questions' => $num->questions,
 				'date_created'	=>	$date,
@@ -105,7 +105,9 @@ class AutoPop extends CI_Controller {
 				'allow_breaks'	=> $allowBreaks,
 				'num_breaks_allowed' => $num_breaks,
 				'randomize'	=> $randomize,
-				'nsfw'	=> $nsfw
+				'nsfw'	=> $nsfw,
+				'questions' => $questions,
+				'banner'	=>	$banner
 			);
 			$quizzes[] = $data;
 
@@ -115,7 +117,85 @@ class AutoPop extends CI_Controller {
 
 		}
 
-		print_r( $quizzes );
+		//print_r( $quizzes );
+
+		foreach( $quizzes as $k=>$v ) {
+
+			$quizInfo = array(
+				'user_id'	=>	$v['created_by_user'],
+				'name'		=>	$v['name'],
+				'description'=> $v['description'],
+				'num_questions'=> $v['num_questions'],
+				'date_created'=>$v['date_created'],
+				'created_by_user'=>$v['created_by_user'],
+				'last_modified_by_user'=>$v['last_modified_by_user'],
+				'active'	=>	$v['active'],
+				'public'	=>	$v['public'],
+				'timed'		=>	$v['timed'],
+				'timer'		=>	$v['timer'],
+				'allow_breaks'=>$v['allow_breaks'],
+				'num_breaks_allowed'=>$v['num_breaks_allowed'],
+				'banner_message'=>"This is the stock banner message. I will do something with this eventually. The quiz is {$v['name']} though.",
+				'banner_image_url'=>$v['banner'],
+				'randomize'	=>	$v['randomize'],
+				'nsfw'		=>	$v['nsfw']
+			);
+			//print_r($quizInfo);
+			$q = $this->db->insert('quizzes',$quizInfo);
+			$quiz_id = $this->db->insert_id();
+			//$quiz_id = $k;
+
+			foreach( $v['questions'] as $key=>$val ) {
+				$questionInfo = array(
+					'quiz_id'	=>	$quiz_id,
+					'question_type'=> $val['type'],
+					'question_name'=> $val['name'],
+					'question_content'=>$val['desc'],
+					'created_on'=> $v['date_created'],
+					'last_modified_by_user'=>$v['last_modified_by_user'],
+					'active'	=> $v['active']
+				);
+				//print_r($questionInfo);
+				$q = $this->db->insert('quiz_questions',$questionInfo);
+				$question_id = $this->db->insert_id();
+				//$question_id = $key;//
+				if( is_array( $val['answers'])) {
+					foreach( $val['answers'] as $KEY=>$VAL ) {
+						$correct = 0;
+						if( $KEY == $val['correct'] ) {
+							$correct = 1;
+						} else {
+							$correct = 0;
+						}
+						$answerInfo = array(
+							'quiz_id'	=>	$quiz_id,
+							'question_id'=> $question_id,
+							'answer_type'=> $val['type'],
+							'answer_content'=>$VAL,
+							'date_created' => $v['date_created'],
+							'is_correct' => $correct
+						);
+						//print_r($answerInfo);
+						$this->db->insert('quiz_answers',$answerInfo);
+					}
+				} else {
+					$correct = 1;
+					$answerInfo = array(
+						'quiz_id'	=>	$quiz_id,
+						'question_id'=> $question_id,
+						'answer_type'=> $val['type'],
+						'answer_content'=>$val['answers'],
+						'date_created' => $v['date_created'],
+						'is_correct' => $correct
+					);
+					//print "<h1>BOOLEAN -> {$val['answers']}</h1>";
+					//print_r($answerInfo);
+					$this->db->insert('quiz_answers',$answerInfo);
+				}
+			}
+		}
+
+/**/
 	}
 
 	public function users() {
