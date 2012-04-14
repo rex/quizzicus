@@ -11,7 +11,7 @@ class AutoPop extends CI_Controller {
 	public function quizzes() {
 
 		$num = new stdClass;
-		$num->quizzes = 1000;
+		$num->quizzes = 10;
 		$num->questions = 20;
 		$num->answers = 5;
 
@@ -117,8 +117,9 @@ class AutoPop extends CI_Controller {
 
 		}
 
-		//print_r( $quizzes );
+		print_r( $quizzes );
 
+/*
 		foreach( $quizzes as $k=>$v ) {
 
 			$quizInfo = array(
@@ -195,7 +196,7 @@ class AutoPop extends CI_Controller {
 			}
 		}
 
-/**/
+*/
 	}
 
 	public function users() {
