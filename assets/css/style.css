@@ -354,6 +354,8 @@ label {
 	border:					1px #bbb solid;
 	box-shadow:				inset 0 1px 1px #eee, 0 1px 1px #888;
 	border-radius:			5px;
+	color: 					#333;
+	margin-bottom:			5px;
 }
 .box_list_div:hover {
 	box-shadow: 			inset 0 1px 1px #fff, 0 2px 5px #666;

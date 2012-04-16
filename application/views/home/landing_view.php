@@ -21,13 +21,12 @@
 <div class="space20"></div>
 <h1 class="qhead">My Quizzes</h1>
 <?php foreach($quizzes['user_quizzes'] as $k): ?>
-
-	<div class="box_list_div">
-		<a href="<?=site_url("quizzes/view/{$k->id}");?>"><h3 class="qhead bold"><?php print $k->name; ?></h3></a>
-		<?php print $k->description; ?>
-		
-	</div>	
-
+	<a href="<?=site_url("quizzes/view/{$k->id}");?>">
+		<div class="box_list_div">
+			<h3 class="bold"><?php print $k->name; ?></h3>
+			<?php print $k->description; ?>
+		</div>	
+	</a>
 <?php endforeach;?>
 
 <div class="space20"></div>
@@ -35,11 +34,12 @@
 <h1 class="qhead">Quizzes Shared with Me</h1>
 <?php foreach($quizzes['user_assigned_quizzes'][0] as $k): ?>
 
-	<div class="box_list_div">
-		<a href="<?=site_url("quizzes/view/{$k->id}");?>"><h3 class="qhead bold"><?php print $k->name; ?></h3></a>
-		<?php print $k->description; ?>
-		
-	</div>	
+	<a href="<?=site_url("quizzes/view/{$k->id}");?>">
+		<div class="box_list_div">
+			<h3 class="bold"><?php print $k->name; ?></h3>
+			<?php print $k->description; ?>
+		</div>
+	</a>
 
 <?php endforeach;?>
 <?php endif; ?>
