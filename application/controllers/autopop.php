@@ -11,7 +11,7 @@ class AutoPop extends CI_Controller {
 	public function quizzes() {
 
 		$num = new stdClass;
-		$num->quizzes = 10;
+		$num->quizzes = 1000;
 		$num->questions = 20;
 		$num->answers = 5;
 
@@ -59,7 +59,17 @@ class AutoPop extends CI_Controller {
 
 			$questions = "";
 			$quizCount = count($quizzes);
-			$rand = rand(0,10000);
+			$rand = rand(0,7006);
+
+
+			// IMPORTANT
+			$randUser = "";
+			$q = $this->db->query("SELECT id FROM quizzers ORDER BY RAND() LIMIT 1");
+			$r = $q->row();
+			$randUser = $r->id;
+
+
+
 			$teacher = array_rand(array_flip( $surnames )) . " " . array_rand(array_flip( $lnames ));
 			$subject = array_rand(array_flip( $quiz->subjects ));
 			$quiztype = array_rand(array_flip( $quiz->types ));
@@ -96,8 +106,8 @@ class AutoPop extends CI_Controller {
 				'description' => "The test description goes here. For this one, we would make a reference to the title, $testname.",
 				'num_questions' => $num->questions,
 				'date_created'	=>	$date,
-				'created_by_user' => $rand,
-				'last_modified_by_user' => $rand,
+				'created_by_user' => $randUser,
+				'last_modified_by_user' => $randUser,
 				'active' => $active,
 				'public' => $public,
 				'timed'	=> $timed,
@@ -117,9 +127,9 @@ class AutoPop extends CI_Controller {
 
 		}
 
-		print_r( $quizzes );
+		//print_r( $quizzes );
 
-/*
+/**/
 		foreach( $quizzes as $k=>$v ) {
 
 			$quizInfo = array(
@@ -196,7 +206,7 @@ class AutoPop extends CI_Controller {
 			}
 		}
 
-*/
+
 	}
 
 	public function users() {
@@ -212,7 +222,7 @@ class AutoPop extends CI_Controller {
 		}
 
 		$i = 10;
-		$records = 500;
+		$records = 100;
 		$usernames = array();
 		$max_type = 5;
 		$fnames = array(
@@ -290,13 +300,15 @@ class AutoPop extends CI_Controller {
 				$finished = true;
 			}
 		}
-		/*
+		
+/*		
 		foreach( $user as $k=>$v ) {
 			$this->db->insert('quizzers',$v);
 			$info[$k]['user_id'] = $this->db->insert_id();
 			$this->db->insert('quizzers_info',$info[$k]);
 		}
-		*/
+
+		print "<h1>All done!</h1>";
 
 		print "\n\n" . count($usernames) . "\n\n" ;
 		//print_r($usernames);
@@ -310,6 +322,7 @@ class AutoPop extends CI_Controller {
 			print "Phone: {$v['phone']}<br />";
 			print "</div> \n\n";
 		}
+*/
 		//print_r($info);
 		//print_r($user);
 		/**/
@@ -328,6 +341,44 @@ class AutoPop extends CI_Controller {
 			print "<h2>{$k->name_first} {$k->name_last} ({$k->username})</h2>";
 			print '</div>';
 		}
+	}
+
+	function count() {
+
+		$q = "SELECT user_id, COUNT(user_id) FROM `quizzes` GROUP BY user_id ORDER BY COUNT(user_id) DESC";
+
+		$q = $this->db->query( $q );
+
+		$output = "";
+		$count = 0;
+
+		foreach( $q->result_array() as $k ) {
+			$output .= "User {$k['user_id']} has {$k['COUNT(user_id)']} quizzes. <br />";
+			$count += $k['COUNT(user_id)'];
+		}
+
+		$highUser = $q->row_array();
+		$highUser = $highUser['user_id'];
+
+		$q = "SELECT * FROM `quizzers` u LEFT JOIN `quizzers_info` i ON i.`user_id` = u.`id` WHERE u.`id` = $highUser";
+
+		$q = $this->db->query( $q );
+
+		print "<pre>";
+		print_r($q->result());
+		print "</pre>";
+
+		print "<h1>There are " . $q->num_rows() . " users with quizzes assigned.</h1>";
+		$q = "SELECT id FROM quizzers AS u WHERE NOT EXISTS ( SELECT * FROM quizzes AS q WHERE q.user_id = u.id )";
+
+		$q = $this->db->query($q);
+
+		print "<h1>$count quizzes accounted for.</h1>";
+		print "<h1> There are " . number_format( $q->num_rows() ) . " users without quizzes assigned to them.</h1>";
+
+		print $output;
+
+
 	}
 }
 
