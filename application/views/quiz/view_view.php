@@ -12,7 +12,7 @@
 		<td><span class="museo">Time Limit:</span></td>
 		<td>
 			<?php if($quiz->timed) {
-				print $quiz->timer / 60 . ' minutes';
+				print date( "H \h\o\u\\r\s, i \m\i\\n\u\\t\e\s, s \s\e\c\o\\n\d\s", $quiz->timer );
 			} else {
 				print 'Untimed';
 			} ?>
@@ -43,15 +43,20 @@
 <?php if(!empty($quiz->banner_message) || (strcmp($quiz->banner_message,'') != 0)): ?>
 	
 		<?php print $quiz->banner_message; ?>
+
+		<br /><br />
 <?php endif; ?>
+
+<div class="msg_info round">
+
 <?php
 
 if($quiz->timed) {
-	print 'Caution: Once this test is started, you will have ' . ( $quiz->timer / 60 ) . ' minutes to complete the test. ';
+	print ' Caution: Once this test is started, you will have ' . date( "H \h\o\u\\r\s, i \m\i\\n\u\\t\e\s, \a\\n\d s \s\e\c\o\\n\d\s", $quiz->timer ) . ' to complete the test. ';
 }
 if($quiz->allow_breaks) {
-	$w = ($quiz->num_breaks_allowed == 1) ? 'it' : 'them';
-	$n = ($quiz->num_breaks_allowed == 0) ? 'an infinite number of' : $quiz->num_breaks_allowed;
+	$w = ($quiz->num_breaks_allowed == 1) ? ' it' : ' them';
+	$n = ($quiz->num_breaks_allowed == 0) ? ' an infinite number of' : number_format( $quiz->num_breaks_allowed );
 	print ' You will be allowed to take ' . $n . ' breaks during the completion of this test, if need be. Use ' . $w . ' wisely!';
 } else {
 	print 'There are *no* breaks allowed during this test. Please stay focused!';
@@ -60,5 +65,6 @@ if($quiz->allow_breaks) {
 		</h3>
 	</div>
 
+</div>
 <br />
 <a href="<?=site_url("quizzes/take/{$quiz->id}");?>" id="button_submit">Take Quiz</a>
