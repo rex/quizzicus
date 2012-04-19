@@ -47,13 +47,13 @@ class Login extends CI_Controller {
 			$this->session->set_userdata('quizzes',$this->model_quiz->fetchQuizzesForUser($this->session->userdata('id')));
 			
 			if(!$error) {
-				redirect('/home/landing/');
+				redirect(site_url('my/dashboard'));
 			} else {
 				throw new exception();
 			}
 		} catch(exception $e) {
 			$this->session->set_flashdata('error',$errors);
-			redirect('/login/');
+			redirect(site_url('login'));
 		}
 	}
 }

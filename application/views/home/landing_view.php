@@ -4,16 +4,16 @@
 	<div class="space20"></div>
 	<table class="link_table">
 		<tr>
-			<td><a href="#">Account Information<img src="<?=base_url();?>/assets/img/icons/user.png" align="right" /></a></td>
-			<td><a href="#">Payment Information<img src="<?=base_url();?>/assets/img/icons/creditcard.png" align="right" /></a></td>
+			<td><a href="#">Account Information<img src="<?=base_url('assets/img/icons/user.png');?>" align="right" /></a></td>
+			<td><a href="#">Payment Information<img src="<?=base_url('assets/img/icons/creditcard.png');?>" align="right" /></a></td>
 		</tr>
 		<tr>
-			<td><a href="#">Reports<img src="<?=base_url();?>/assets/img/icons/notebook.png" align="right" /></a></td>
-			<td><a href="#">Gradebook<img src="<?=base_url();?>/assets/img/icons/monitor.png" align="right" /></a></td>
+			<td><a href="#">Reports<img src="<?=base_url('assets/img/icons/notebook.png');?>" align="right" /></a></td>
+			<td><a href="#">Gradebook<img src="<?=base_url('assets/img/icons/monitor.png');?>" align="right" /></a></td>
 		</tr>
 		<tr>
 			<td><a href="#">Support</a></td>
-			<td><a href="#">View Quizzes<img src="<?=base_url();?>/assets/img/icons/write.png" align="right" /></a></td>
+			<td><a href="#">View Quizzes<img src="<?=base_url('assets/img/icons/write.png');?>" align="right" /></a></td>
 		</tr>
 		
 	</table>
