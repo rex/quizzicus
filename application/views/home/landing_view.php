@@ -19,6 +19,7 @@
 	</table>
 
 <div class="space20"></div>
+<hr /><br />
 <h1 class="qhead">My Quizzes</h1>
 <?php foreach($quizzes['user_quizzes'] as $k): ?>
 	<a href="<?=site_url("quizzes/view/{$k->id}");?>">

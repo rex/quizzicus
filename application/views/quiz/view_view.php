@@ -1,10 +1,10 @@
 
-<h2 class="qhead"><?php print $quiz->name; ?></h2>
-<br />
+<h1 class="qhead"><?php print $quiz->name; ?></h1>
+<div class="space10"></div>
 <h3 class="open"><?php print $quiz->description; ?></h3>
 <div class="space20"></div>
 
-<h3 class="qhead">Rules</h3>
+<h2 class="qhead">Rules</h2>
 <table class="view_quiz_table">
 	
 	<tr>

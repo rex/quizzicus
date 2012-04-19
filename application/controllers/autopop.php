@@ -11,7 +11,7 @@ class AutoPop extends CI_Controller {
 	public function quizzes() {
 
 		$num = new stdClass;
-		$num->quizzes = 1000;
+		$num->quizzes = 500;
 		$num->questions = 20;
 		$num->answers = 5;
 
@@ -178,7 +178,7 @@ class AutoPop extends CI_Controller {
 						} else {
 							$correct = 0;
 						}
-						$answerInfo = array(
+						$answerInfo[] = array(
 							'quiz_id'	=>	$quiz_id,
 							'question_id'=> $question_id,
 							'answer_type'=> $val['type'],
@@ -186,9 +186,16 @@ class AutoPop extends CI_Controller {
 							'date_created' => $v['date_created'],
 							'is_correct' => $correct
 						);
-						//print_r($answerInfo);
-						$this->db->insert('quiz_answers',$answerInfo);
 					}
+
+					$newAnswerRow = array(
+						'quiz_id'	=>	$quiz_id,
+						'question_id'=>	$question_id,
+						'content'	=>	serialize( $answerInfo ),
+						'date_created'=> $v['date_created']
+					);
+					$this->db->insert('quiz_answers',$newAnswerRow);
+
 				} else {
 					$correct = 1;
 					$answerInfo = array(
@@ -199,9 +206,13 @@ class AutoPop extends CI_Controller {
 						'date_created' => $v['date_created'],
 						'is_correct' => $correct
 					);
-					//print "<h1>BOOLEAN -> {$val['answers']}</h1>";
-					//print_r($answerInfo);
-					$this->db->insert('quiz_answers',$answerInfo);
+					$newAnswerRow = array(
+						'quiz_id'	=>	$quiz_id,
+						'question_id'=>	$question_id,
+						'content'	=>	serialize( $answerInfo ),
+						'date_created'=> $v['date_created']
+					);
+					$this->db->insert('quiz_answers',$newAnswerRow);
 				}
 			}
 		}
@@ -222,7 +233,7 @@ class AutoPop extends CI_Controller {
 		}
 
 		$i = 10;
-		$records = 100;
+		$records = 10;
 		$usernames = array();
 		$max_type = 5;
 		$fnames = array(
@@ -245,6 +256,24 @@ class AutoPop extends CI_Controller {
 		);
 
 		$finished = false;
+
+		$user = array();
+		$user[] = array(
+			"username" => 'pierce',
+			"password"	 => sha1( 'pass' . $this->config->item('encryption_key') ),
+			"user_type"	 => 5,
+			"active" => 1,
+			"created_on" => date("Y-m-d H:i:s")
+		);
+		$info = array();
+		$info[] = array(
+			"name_first" => 'Pierce',
+			"name_last"  => 'Moore',
+			"phone"		 => '214-616-7264',
+			"country_code"=> 'US',
+			"address"	 => '8610 Southwestern Blvd. #1708 Dallas,TX 75206',
+			"profile_image_url" => "profile1.jpg"
+		);
 		// First, we create users
 		while( !$finished ) {
 			$fname = array_rand(array_flip($fnames));
@@ -259,7 +288,7 @@ class AutoPop extends CI_Controller {
 			$rand = mt_rand();
 			$smallRand = rand(1000,9999);
 			$uname = strtolower($fname[0] . $lname) . $rand;
-			$pass = sha1($lname);
+			$pass = sha1($lname . $this->config->item('encryption_key'));
 			if( $i % 10 == 0 ) {
 				$active = 0;
 			} else {
@@ -282,8 +311,7 @@ class AutoPop extends CI_Controller {
 				"password"	 => $pass,
 				"user_type"	 => rand(1,$max_type),
 				"active" => $active,
-				"created_on" => $time,
-				"active" => $active
+				"created_on" => $time
 			);
 			$info[] = array(
 				"name_first" => $fname,
@@ -322,9 +350,11 @@ class AutoPop extends CI_Controller {
 			print "Phone: {$v['phone']}<br />";
 			print "</div> \n\n";
 		}
-*/
-		//print_r($info);
-		//print_r($user);
+*/	
+		print "<pre>";
+		print_r($info);
+		print_r($user);
+		print "</pre>";
 		/**/
 		//print '</pre>';
 	}

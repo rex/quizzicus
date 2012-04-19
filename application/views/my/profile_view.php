@@ -1,8 +1,8 @@
-<?php print_r($userdata);?>
+<?php //print_r($userdata);?>
 <div class="profile_header_info">
 	<img src="<?=base_url('assets/img/' . $userdata['profile_image_url']);?>" align="left" class="img_profile" />
 
-	<h1 class="qhead"><?=$userdata['name_first'] . " " . $userdata['name_last']; ?></h1>
+	<h1 class="qhead" style="font-size: 4em;"><?=$userdata['name_first'] . " " . $userdata['name_last']; ?></h1>
 	<h2 class="open">
 	<?php
 	switch( $userdata['user_type'] ) {
@@ -32,3 +32,5 @@
 </div>
 
 <div class="clear"></div>
+<br /><br />
+<hr />
