@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database','session','pageload');
+$autoload['libraries'] = array('session','pageload','mongo_db');
 
 
 /*

@@ -13,7 +13,7 @@ $(document).ready(function() {
 
 
 <pre>
-	<?php //print_r($quiz); ?>
+	<?php print_r($quiz); ?>
 </pre>
 
 <?php 

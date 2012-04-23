@@ -66,16 +66,24 @@ class Model_quiz extends CI_Model {
 			//$q = "SELECT * FROM `quiz_questions` WHERE `quiz_id` = $qid LEFT JOIN `quiz_answers` ON `quiz_answers`.`question_id` = `uiz_questions`.`id`";
 
 			$q = $this->db->query("
-				SELECT * FROM `quizzes`
+				SELECT * FROM `quiz_answers`
 				LEFT JOIN `quiz_questions` 
-					ON `quizzes`.`id` = `quiz_questions`.`quiz_id`
-				LEFT JOIN `quiz_answers`
 					ON `quiz_questions`.`id` = `quiz_answers`.`question_id`
+				LEFT JOIN `quizzes`
+					ON `quizzes`.`id` = `quiz_questions`.`quiz_id`
 				WHERE `quizzes`.`id` = $qid
 				ORDER BY `quiz_questions`.`id` ASC
 			");
 			
 			$answers = $q->result();
+
+			foreach( $answers as $k ) {
+				print $k->quiz_id . "\n";
+				print $k->question_id . "\n";
+				print_r(unserialize( $k->answer_content));
+			}
+
+			die();
 			
 			$i = 1;
 			$comp = $answers[0]->question_id;

@@ -59,7 +59,7 @@ class AutoPop extends CI_Controller {
 
 			$questions = "";
 			$quizCount = count($quizzes);
-			$rand = rand(0,7006);
+			$rand = rand(0,6897);
 
 
 			// IMPORTANT
@@ -179,11 +179,7 @@ class AutoPop extends CI_Controller {
 							$correct = 0;
 						}
 						$answerInfo[] = array(
-							'quiz_id'	=>	$quiz_id,
-							'question_id'=> $question_id,
-							'answer_type'=> $val['type'],
 							'answer_content'=>$VAL,
-							'date_created' => $v['date_created'],
 							'is_correct' => $correct
 						);
 					}
@@ -191,28 +187,26 @@ class AutoPop extends CI_Controller {
 					$newAnswerRow = array(
 						'quiz_id'	=>	$quiz_id,
 						'question_id'=>	$question_id,
-						'content'	=>	serialize( $answerInfo ),
+						'answer_content'	=>	serialize( $answerInfo ),
 						'date_created'=> $v['date_created']
 					);
 					$this->db->insert('quiz_answers',$newAnswerRow);
 
 				} else {
 					$correct = 1;
-					$answerInfo = array(
-						'quiz_id'	=>	$quiz_id,
-						'question_id'=> $question_id,
-						'answer_type'=> $val['type'],
+					$answerInfo[] = array(
 						'answer_content'=>$val['answers'],
-						'date_created' => $v['date_created'],
 						'is_correct' => $correct
 					);
 					$newAnswerRow = array(
 						'quiz_id'	=>	$quiz_id,
 						'question_id'=>	$question_id,
-						'content'	=>	serialize( $answerInfo ),
+						'answer_content'	=>	serialize( $answerInfo ),
 						'date_created'=> $v['date_created']
 					);
 					$this->db->insert('quiz_answers',$newAnswerRow);
+
+					unset($quizzes[$k]);
 				}
 			}
 		}
@@ -233,7 +227,7 @@ class AutoPop extends CI_Controller {
 		}
 
 		$i = 10;
-		$records = 10;
+		$records = 10000;
 		$usernames = array();
 		$max_type = 5;
 		$fnames = array(
@@ -329,7 +323,7 @@ class AutoPop extends CI_Controller {
 			}
 		}
 		
-/*		
+		
 		foreach( $user as $k=>$v ) {
 			$this->db->insert('quizzers',$v);
 			$info[$k]['user_id'] = $this->db->insert_id();
@@ -341,7 +335,7 @@ class AutoPop extends CI_Controller {
 		print "\n\n" . count($usernames) . "\n\n" ;
 		//print_r($usernames);
 		
-		//print_r($activeUsers);
+/*		//print_r($activeUsers);
 		foreach( $info as $k=>$v ) {
 			print "<div style=\"clear:both;\">";
 			print "<img src=\"http://localhost/quizzicus/assets/img/{$v['profile_image_url']}\" align=\"left\" />";
@@ -351,12 +345,13 @@ class AutoPop extends CI_Controller {
 			print "</div> \n\n";
 		}
 */	
-		print "<pre>";
+/*		print "<pre>";
 		print_r($info);
 		print_r($user);
 		print "</pre>";
-		/**/
+		*/
 		//print '</pre>';
+
 	}
 
 	function show() {

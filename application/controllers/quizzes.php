@@ -16,6 +16,8 @@ class Quizzes extends CI_Controller {
 			redirect($_SERVER['HTTP_REFERER']);
 		}
 		$info = $this->model_quiz->getQuizInfo($qid);
+
+		print_r($info);
 		//print_r($info);
 		if(!$info['success']) {
 			$this->session->set_flashdata('error',$info['msg']);
