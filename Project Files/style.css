@@ -1,0 +1,24 @@
+* {
+	font-family:			"Century Gothic";
+	margin:					0;
+	padding:				0;
+}
+body {
+	background: 			#dddddd;
+}
+a {
+	text-decoration:none;
+}
+
+.round {
+	-webkit-border-radius:	5px;
+	-moz-border-radius:		5px;
+	border-radius:			5px;
+}
+#main {
+	background: 			#eeeeee;
+	border:					#bbbbbb 1px solid;
+	width:					850px;
+	margin:					100px auto auto auto;
+	padding:				25px;
+}
